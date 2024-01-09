@@ -4,10 +4,10 @@ const todoItem = {
   display: "flex",
   flexDirection: "row",
   gap: "4px",
+  padding: "16px",
   borderRadius: "5px",
   border: "1px solid #0085f2",
   backgroundColor: "#f9f9fb",
-  padding: "16px",
 };
 
 const ToDoItem = (props: ToDoProps) => {
