@@ -5,6 +5,7 @@ const todoItem = {
   flexDirection: "row",
   gap: "4px",
   padding: "16px",
+  margin: "0px",
   borderRadius: "5px",
   border: "1px solid #0085f2",
   backgroundColor: "#f9f9fb",
