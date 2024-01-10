@@ -6,13 +6,20 @@ import { ToDoProps } from "myTypes";
 import ToDoList from "./ui/components/ToDoList";
 
 const todoDataList: ToDoProps[] = [
-  { description: "mow the lawn", markAsDone: false },
+  { description: "mow the lawn", markAsDone: false, index: "abc123" },
   {
     description: "pay the utilities",
     markAsDone: false,
+    index: "def123",
   },
-  { description: "get ripped", markAsDone: true },
+  { description: "get ripped", markAsDone: true, index: "ghi123" },
 ];
+//TODO: Add this handler once I understand how to use state
+// const handleCheckboxChange = (index: number) => {
+//   const updatedTodoDataList = [...todoDataList];
+//   updatedTodoDataList[index].markAsDone =
+//     !updatedTodoDataList[index].markAsDone;
+// };
 
 const todoContainer = {
   display: "flex",
@@ -26,12 +33,7 @@ function App() {
     <>
       <div style={todoContainer}>
         {todoDataList.map((item, index) => (
-          <ToDoList
-            description={item.description}
-            index={index}
-            markAsDone={item.markAsDone}
-            dateComplete={item.dateComplete}
-          ></ToDoList>
+          <ToDoList key={index} {...item}></ToDoList>
         ))}
       </div>
     </>

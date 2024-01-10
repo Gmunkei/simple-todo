@@ -3,7 +3,7 @@ declare module "myTypes" {
     description: string;
     markAsDone: boolean;
     dateComplete?: Date;
-    index?: number;
+    index?: string;
   };
 }
 

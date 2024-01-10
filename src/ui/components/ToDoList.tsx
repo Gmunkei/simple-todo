@@ -16,7 +16,7 @@ const ToDoItem = (props: ToDoProps) => {
     <>
       <div style={todoItem}>
         <input type="checkbox" checked={props.markAsDone}></input>
-        <div key={props.index}>{props.description}</div>
+        <div>{props.description}</div>
       </div>
     </>
   );
