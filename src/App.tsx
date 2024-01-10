@@ -1,18 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { ToDoProps } from "myTypes";
+import { Todo } from "./models/todo";
 import ToDoList from "./ui/components/ToDoList";
 
-const todoDataList: ToDoProps[] = [
-  { description: "mow the lawn", markAsDone: false, index: "abc123" },
+const todoDataList: Todo[] = [
+  { description: "mow the lawn", isComplete: false, id: "abc123" },
   {
     description: "pay the utilities",
-    markAsDone: false,
-    index: "def123",
+    isComplete: false,
+    id: "def123",
   },
-  { description: "get ripped", markAsDone: true, index: "ghi123" },
+  { description: "get ripped", isComplete: true, id: "ghi123" },
 ];
 //TODO: Add this handler once I understand how to use state
 // const handleCheckboxChange = (index: number) => {
@@ -21,7 +18,7 @@ const todoDataList: ToDoProps[] = [
 //     !updatedTodoDataList[index].markAsDone;
 // };
 
-const todoContainer = {
+const todoContainer: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: "8px",
@@ -30,13 +27,15 @@ const todoContainer = {
 
 function App() {
   return (
-    <>
-      <div style={todoContainer}>
-        {todoDataList.map((item, index) => (
-          <ToDoList key={index} {...item}></ToDoList>
-        ))}
-      </div>
-    </>
+    <div style={todoContainer}>
+      {todoDataList.map((item) => (
+        <ToDoList
+          key={item.id}
+          markAsDone={() => console.log(item)}
+          {...item}
+        />
+      ))}
+    </div>
   );
 }
 

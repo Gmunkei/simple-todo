@@ -1,6 +1,6 @@
-import { ToDoProps } from "myTypes";
+import { Todo } from "../../models/todo";
 
-const todoItem = {
+const todoItem: React.CSSProperties = {
   display: "flex",
   flexDirection: "row",
   gap: "4px",
@@ -11,14 +11,24 @@ const todoItem = {
   backgroundColor: "#f9f9fb",
 };
 
-const ToDoItem = (props: ToDoProps) => {
+type TodoProps = Todo & {
+  markAsDone: () => void;
+};
+
+const ToDoItem = ({
+  description,
+  id,
+  isComplete,
+  markAsDone,
+  dateComplete,
+  dateCreated,
+}: TodoProps) => {
   return (
-    <>
-      <div style={todoItem}>
-        <input type="checkbox" checked={props.markAsDone}></input>
-        <div>{props.description}</div>
-      </div>
-    </>
+    <div style={todoItem}>
+      <input type="checkbox" checked={isComplete}></input>
+      <div>{description}</div>
+      <button onClick={markAsDone}>Done</button>
+    </div>
   );
 };
 
